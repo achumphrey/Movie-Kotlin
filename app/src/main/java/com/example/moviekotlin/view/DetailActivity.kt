@@ -28,7 +28,7 @@ class DetailActivity : AppCompatActivity() {
         val movie_id = intent.getIntExtra(Constants.INTENT_MESSAGE, 0)
 
         val movieRequest = RetrofitInstance().retrofitInstance.create(MovieRequest::class.java)
-        val call = movieRequest.getMvIdReponse(movie_id)
+        val call = movieRequest.getMvIdReponse(movie_id, Constants.API_KEY)
 
         call.enqueue(object : Callback<DetailModel> {
             override fun onResponse(call: Call<DetailModel>, response: Response<DetailModel>) {
