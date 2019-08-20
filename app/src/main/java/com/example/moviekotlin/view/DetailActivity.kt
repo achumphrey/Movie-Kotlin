@@ -25,10 +25,10 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
 
         val intent = intent
-        val movie_id = intent.getIntExtra(Constants.INTENT_MESSAGE, 0)
+        val movieId = intent.getIntExtra(Constants.INTENT_MESSAGE, 0)
 
         val movieRequest = RetrofitInstance().retrofitInstance.create(MovieRequest::class.java)
-        val call = movieRequest.getMvIdReponse(movie_id, Constants.API_KEY)
+        val call = movieRequest.getMvIdReponse(movieId, Constants.API_KEY)
 
         call.enqueue(object : Callback<DetailModel> {
             override fun onResponse(call: Call<DetailModel>, response: Response<DetailModel>) {

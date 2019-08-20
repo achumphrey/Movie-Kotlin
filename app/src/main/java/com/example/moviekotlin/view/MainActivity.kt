@@ -26,16 +26,18 @@ class MainActivity : AppCompatActivity() {
 
         val movieRequest = RetrofitInstance().retrofitInstance.create(MovieRequest::class.java)
         val call = movieRequest.getmoviesPopular(Constants.API_KEY)
+
         call.enqueue(object : Callback<MoviePopular>{
 
             override fun onFailure(call: Call<MoviePopular>, t: Throwable) {
             }
 
             override fun onResponse(call: Call<MoviePopular>, response: Response<MoviePopular>) {
+
                 val res = response.body()
                 Log.d("MainActivity", res!!.results[0].title)
 
-                val adapter:MovieAdapter  = MovieAdapter(res,object : OnMovieClickLister{
+                val adapter:MovieAdapter  = MovieAdapter(res, object : OnMovieClickLister{
                     override fun onMovieClick(results: Results) {
 
                         val intent = Intent(this@MainActivity, DetailActivity::class.java)
@@ -47,9 +49,7 @@ class MainActivity : AppCompatActivity() {
                 })
                 rv_list.layoutManager = LinearLayoutManager(this@MainActivity)
                 rv_list.adapter = adapter
-
-
             }
-        });
+        })
     }
 }
