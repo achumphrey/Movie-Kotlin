@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
 import com.example.moviekotlin.R
+import com.example.moviekotlin.common.inflate
 import com.example.moviekotlin.model.moviepopular.MoviePopular
 import com.example.moviekotlin.model.moviepopular.Results
 import com.squareup.picasso.Picasso
@@ -15,8 +16,12 @@ class MovieAdapter (private val moviePopular: MoviePopular, private val listener
     : Adapter<MovieViewHolder> (){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        return MovieViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.row, parent, false))
+
+        val view: View = parent.inflate(R.layout.row, false)
+        return MovieViewHolder(view)
+
+//        return MovieViewHolder(LayoutInflater.from(parent.context)
+//            .inflate(R.layout.row, parent, false))
     }
 
     override fun getItemCount(): Int {
