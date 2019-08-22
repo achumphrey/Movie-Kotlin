@@ -1,6 +1,6 @@
-package com.example.moviekotlin.network
+package com.example.moviekotlin.presenter
 
-import com.example.moviekotlin.Constants
+import com.example.moviekotlin.common.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

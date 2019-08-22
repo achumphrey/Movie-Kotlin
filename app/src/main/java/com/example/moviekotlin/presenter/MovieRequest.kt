@@ -1,4 +1,4 @@
-package com.example.moviekotlin
+package com.example.moviekotlin.presenter
 
 import com.example.moviekotlin.model.moviedetails.DetailModel
 import com.example.moviekotlin.model.moviepopular.MoviePopular

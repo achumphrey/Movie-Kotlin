@@ -38,7 +38,8 @@ class MovieAdapter (private val moviePopular: MoviePopular, private val listener
         holder.ratingBar.rating = moviePopular.results[position].vote_average.toFloat()
 
        // this is the imageview loading with the extension function of Picasso
-        holder.imgView.loadImage("http://image.tmdb.org/t/p/w185" + moviePopular.results[position].poster_path)
+        holder.imgView.loadImage("http://image.tmdb.org/t/p/w185"
+                + moviePopular.results[position].poster_path)
 
         //this is the usual way to load image via Picasso
        /* Picasso.get().load("http://image.tmdb.org/t/p/w185"

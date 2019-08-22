@@ -3,12 +3,11 @@ package com.example.moviekotlin.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.moviekotlin.Constants
-import com.example.moviekotlin.MovieRequest
+import com.example.moviekotlin.common.Constants
+import com.example.moviekotlin.presenter.MovieRequest
 import com.example.moviekotlin.R
 import com.example.moviekotlin.model.moviedetails.DetailModel
-import com.example.moviekotlin.model.moviepopular.MoviePopular
-import com.example.moviekotlin.network.RetrofitInstance
+import com.example.moviekotlin.presenter.RetrofitInstance
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.row.rt_bar
