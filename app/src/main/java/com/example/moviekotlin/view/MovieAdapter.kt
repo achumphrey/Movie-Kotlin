@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
 import com.example.moviekotlin.R
 import com.example.moviekotlin.common.inflate
+import com.example.moviekotlin.common.loadImage
 import com.example.moviekotlin.model.moviepopular.MoviePopular
 import com.example.moviekotlin.model.moviepopular.Results
 import com.squareup.picasso.Picasso
@@ -17,9 +18,11 @@ class MovieAdapter (private val moviePopular: MoviePopular, private val listener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
 
+        //used the extension function we have created
         val view: View = parent.inflate(R.layout.row, false)
         return MovieViewHolder(view)
 
+        // this is the normal way to inflate the view and initialize the viewholder
 //        return MovieViewHolder(LayoutInflater.from(parent.context)
 //            .inflate(R.layout.row, parent, false))
     }
@@ -33,9 +36,14 @@ class MovieAdapter (private val moviePopular: MoviePopular, private val listener
         holder.tvTitle.text = moviePopular.results[position].title
         holder.overView.text = moviePopular.results[position].overview
         holder.ratingBar.rating = moviePopular.results[position].vote_average.toFloat()
-        Picasso.get().load("http://image.tmdb.org/t/p/w185"
+
+       // this is the imageview loading with the extension function of Picasso
+        holder.imgView.loadImage("http://image.tmdb.org/t/p/w185" + moviePopular.results[position].poster_path)
+
+        //this is the usual way to load image via Picasso
+       /* Picasso.get().load("http://image.tmdb.org/t/p/w185"
                 + moviePopular.results[position]
-            .poster_path).into(holder.imgView)
+            .poster_path).into(holder.imgView)*/
 
         holder.bind(moviePopular.results[position], listener)
     }
